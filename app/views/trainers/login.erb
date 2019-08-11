@@ -1,1 +1,13 @@
-<p>this is in the login erb</p>
+<h2>login!</h2>
+
+<form action='/login' method=POST>
+  <label for=trainer_name>Trainer Name: </label>
+  <input type=text name=trainer_name id=trainer_name>
+  <br>
+
+  <label for=password>Password: </label>
+  <input type=password name=password id=password>
+  <br>
+
+  <input type=submit value='Login'>
+</form>
