@@ -2,7 +2,6 @@ require_relative './config/env'
 
 
 use Rack::MethodOverride
-use FighterController
-use WeaponController
-use SpellController
+use TrainerConteoller
+use PokemonController
 run ApplicationController
