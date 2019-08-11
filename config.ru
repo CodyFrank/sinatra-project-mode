@@ -1,7 +1,7 @@
 require_relative './config/env'
 
 
-use Rack::MethodOveride
+use Rack::MethodOverride
 use FighterController
 use WeaponController
 use SpellController
