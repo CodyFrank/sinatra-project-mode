@@ -1,1 +1,15 @@
-<h4>to put list of this trainers pokemon here</h4>
+<h4>Your collection!</h4>
+
+<ol>
+  <%@trainer.pokemon.each do |pokemon|%>
+    <li><%=pokemon.name%>
+      <ul>
+        <li>pokemon.nickname</li>
+        <li>pokemon.type</li>
+      </ul>
+    </li>
+  <%end%>
+
+
+
+</ol>
