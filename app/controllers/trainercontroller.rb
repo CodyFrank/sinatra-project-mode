@@ -11,4 +11,7 @@ class TrainerController < ApplicationController
     erb :'trainers/signup'
   end
 
+  post '/signup' do
+  end
+
 end
