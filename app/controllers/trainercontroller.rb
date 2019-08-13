@@ -1,6 +1,7 @@
 class TrainerController < ApplicationController
 
   get '/login' do
+    @failed = false
     erb :'trainers/login'
   end
 
@@ -10,6 +11,7 @@ class TrainerController < ApplicationController
       session[:user_id] = trainer.id
       redirect '/trainer'
     else
+      @failed = true
       erb :'trainers/login'
     end
   end
