@@ -17,10 +17,19 @@ class TrainerController < ApplicationController
   end
 
   get '/signup' do
+    authenticate
     erb :'trainers/signup'
   end
 
   post '/signup' do
+    if params[:trainer_name] == "" || params[:email] == "" || params[:password] == ""
+      @failed = true
+    else
+      @failed = false
+      @trainer = Trainer.create(Trainer_name: params[:trainer_name], password: params[:password], email: params[:email])
+      session[:user_id] = @trainer.id
+      redirect '/trainer'
+    end
   end
 
   get '/trainer' do
