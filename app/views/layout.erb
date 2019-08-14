@@ -6,11 +6,21 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<h2>Pokemon gotta catch them all</h2>
+
+<div>
 
 <%if logged_in?%>
-  <p><a href='/logout'>Logout</a></p>
+  <p class="logout"><a href='/logout'>Logout</a></p>
 <%end%>
+
+<h2>Pokemon gotta catch them all</h2>
+
+
+</div>
+
+
+
+
 <%= yield %>
 
 </body>

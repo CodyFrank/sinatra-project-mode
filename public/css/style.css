@@ -5,3 +5,7 @@ html {
 .failed {
     color: red;
 }
+
+.logout {
+    float: right;
+}
