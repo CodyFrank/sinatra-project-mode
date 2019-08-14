@@ -17,8 +17,11 @@ class TrainerController < ApplicationController
   end
 
   get '/signup' do
-    authenticate
-    erb :'trainers/signup'
+    if logged_in?
+      redirect '/trainer'
+    else
+      erb :'trainers/signup'
+    end
   end
 
   post '/signup' do
@@ -26,7 +29,7 @@ class TrainerController < ApplicationController
       @failed = true
     else
       @failed = false
-      @trainer = Trainer.create(Trainer_name: params[:trainer_name], password: params[:password], email: params[:email])
+      @trainer = Trainer.create(trainer_name: params[:trainer_name], password: params[:password], email: params[:email])
       session[:user_id] = @trainer.id
       redirect '/trainer'
     end
