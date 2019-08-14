@@ -1,8 +1,12 @@
 class TrainerController < ApplicationController
 
   get '/login' do
-    @failed = false
-    erb :'trainers/login'
+    if !logged_in?
+      @failed = false
+      erb :'trainers/login'
+    else
+      redirect '/trainer'
+    end
   end
 
   post '/login' do
@@ -33,6 +37,15 @@ class TrainerController < ApplicationController
       @trainer = Trainer.create(trainer_name: params[:trainer_name], password: params[:password], email: params[:email])
       session[:user_id] = @trainer.id
       redirect '/trainer'
+    end
+  end
+
+  get '/logout' do
+    if logged_in?
+      session.destroy
+      redirect '/login'
+    else
+      redirect '/login'
     end
   end
 
