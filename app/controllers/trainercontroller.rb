@@ -27,6 +27,7 @@ class TrainerController < ApplicationController
   post '/signup' do
     if params[:trainer_name] == "" || params[:email] == "" || params[:password] == ""
       @failed = true
+      erb :'trainers/signup'
     else
       @failed = false
       @trainer = Trainer.create(trainer_name: params[:trainer_name], password: params[:password], email: params[:email])
