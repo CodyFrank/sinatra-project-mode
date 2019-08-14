@@ -8,6 +8,9 @@
 <body>
 <h2>Pokemon gotta catch them all</h2>
 
+<%if logged_in?%>
+  <p><a href='/logout'>Logout</a></p>
+<%end%>
 <%= yield %>
 
 </body>

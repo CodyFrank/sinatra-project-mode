@@ -50,8 +50,9 @@ class TrainerController < ApplicationController
   end
 
   get '/trainer' do
-    authenticate
-    erb :'trainers/trainer'
+    erb :index
+    #authenticate
+    #erb :'trainers/trainer'
   end
 
 end
