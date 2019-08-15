@@ -4,8 +4,8 @@
   <%@trainer.pokemon.each do |pokemon|%>
     <li><%=pokemon.name%>
       <ul>
-        <li>pokemon.nickname</li>
-        <li>pokemon.type</li>
+        <li><%=pokemon.nickname%></li>
+        <li><%=pokemon.element%></li>
       </ul>
     </li>
   <%end%>
