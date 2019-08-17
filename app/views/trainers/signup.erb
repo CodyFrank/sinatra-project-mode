@@ -23,5 +23,7 @@
 
 
 <%if @failed%>
-<p class="failed">somthing is missing please try again</p>
+  <% @trainer.errors.full_messages.each do |e|%>
+    <p class="failed"><%= e %></p>
+  <%end%>
 <%end%>
