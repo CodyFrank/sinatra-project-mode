@@ -22,6 +22,9 @@ class PokemonController < ApplicationController
   end
 
   get '/pokemon/:id' do
+    authenticate
+    @pokemon = Pokemon.find_by_id(params[:id])
+    erb :'pokemon/show'
   end
 
   get '/pokemon/:id/edit' do
