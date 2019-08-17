@@ -12,6 +12,13 @@ class PokemonController < ApplicationController
   end
 
   post '/pokemon' do
+    pokemon = Pokemon.create(name: params[:name], nickname: params[:nickname], element: params[:element])
+    if pokemon.valid?
+        current_user.pokemon << pokemon
+        redirect "/trainer"
+    else
+        redirect '/pokemon/new'
+    end
   end
 
   get '/pokemon/:id' do

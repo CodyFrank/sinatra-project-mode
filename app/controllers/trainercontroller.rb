@@ -52,7 +52,7 @@ class TrainerController < ApplicationController
     end
   end
 
-  get '/trainer/:id' do
+  get '/trainer' do
     @trainer = Trainer.find_by_id(params[:id])
     puts @trainer
     authenticate
