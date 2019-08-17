@@ -44,14 +44,13 @@ class TrainerController < ApplicationController
 
   post '/signup' do
     @trainer = Trainer.create(trainer_name: params[:trainer_name], password: params[:password], password_confirmation: params[:password_confirmation], email: params[:email])
-    binding.pry
-    if @trainer.id = nil
-      @failed = true
-      erb :'trainers/signup'
-    else
+    if @trainer.valid?
       @failed = false
       session[:user_id] = @trainer.id
       redirect "/trainer/#{@trainer.id}"
+    else
+      @failed = true
+      erb :'trainers/signup'
   end
 
 
