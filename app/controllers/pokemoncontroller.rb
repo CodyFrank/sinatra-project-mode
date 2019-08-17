@@ -28,6 +28,13 @@ class PokemonController < ApplicationController
   end
 
   get '/pokemon/:id/edit' do
+    authenticate
+    @pokemon = Pokemon.find_by_id(params[:id])
+    if @pokemon.trainer.id == current_user.id
+        erb :'pokemon/edit'
+    else
+        redirect '/pokemon'
+    end
   end
 
   patch '/articles/:id' do
