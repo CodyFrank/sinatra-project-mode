@@ -23,7 +23,7 @@ class TrainerController < ApplicationController
 
   get '/signup' do
     if logged_in?
-      @trainer = Trainer.find_by_id(params[:id])
+      @trainer = Trainer.find_by_id(session[:user_id])
       redirect "/trainer/#{@trainer.id}"
     else
       erb :'trainers/signup'
@@ -40,19 +40,8 @@ class TrainerController < ApplicationController
     else
       @failed = true
       erb :'trainers/signup'
+    end
   end
-
-
-  end
-
-
-
-
-
-
-
-
-
 
   get '/logout' do
     if logged_in?
