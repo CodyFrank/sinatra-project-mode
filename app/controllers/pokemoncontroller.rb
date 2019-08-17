@@ -38,6 +38,27 @@ class PokemonController < ApplicationController
   end
 
   patch '/pokemon/:id' do
+    authenticate
+    @pokemon = Pokemon.find_by_id(params[:id])
+    if @pokemon.trainer.id == current_user.id
+
+        if params[:name] != ""
+          @pokemon.name = params[:name]
+        end
+
+        if params[:nickname] != ""
+          @pokemon.nickname = params[:nickname]
+        end
+
+        if params[:element] != ""
+          @pokemon.element = params[:element]
+        end
+        
+        @pokemon.save
+        redirect "pokemon/#{@pokemon.id}"
+    else
+        redirect "pokemon/#{@pokemon.id}/edit"
+    end
   end
 
   put '/pokemon/:id' do
