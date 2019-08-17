@@ -11,7 +11,12 @@
 <p><a href='/'>Go Home</a></p>
 
 <%if logged_in?%>
-  <p class="logout"><a href='/logout'>Logout</a></p>
+  <!--<p class="logout"><a href='/logout'>Logout</a></p>-->
+  <form action='/logout' method="post">
+    <input id=hidden type=hidden name=_method value=delete>
+    <input type=submit value='Logout'>
+  </form>
+
 <%end%>
 
 <h2>Pokemon gotta catch them all</h2>
