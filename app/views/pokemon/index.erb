@@ -1,0 +1,9 @@
+<h2>pokemon!</h2>
+<ul>
+  <%@pokemon.each do |p|%>
+  <li><%=p.name%></li>
+  <li><%=p.nickname%></li>
+  <li><%=p.element%></li>
+  <li><%=p.trainer.trainer_name%></li>
+  <%end%>
+</ul>
