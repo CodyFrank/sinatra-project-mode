@@ -53,15 +53,12 @@ class PokemonController < ApplicationController
         if params[:element] != ""
           @pokemon.element = params[:element]
         end
-        
+
         @pokemon.save
         redirect "pokemon/#{@pokemon.id}"
     else
         redirect "pokemon/#{@pokemon.id}/edit"
     end
-  end
-
-  put '/pokemon/:id' do
   end
 
   delete '/pokemon/:id' do
