@@ -37,13 +37,13 @@ class PokemonController < ApplicationController
     end
   end
 
-  patch '/articles/:id' do
+  patch '/pokemon/:id' do
   end
 
-  put '/articles/:id' do
+  put '/pokemon/:id' do
   end
 
-  delete '/articles/:id' do
+  delete '/pokemon/:id' do
   end
 
 end

@@ -1,0 +1,25 @@
+<h3>update your pokemon's info here</h3>
+
+<h3>Old info</h3>
+<h4><%=@pokemon.name%></h4>
+<p>Nick Name: <%=@pokemon.nickname %></p>
+<p>Type: <%=@pokemon.element %></p>
+<p>Trainer: <%=@pokemon.trainer.trainer_name %></p>
+
+
+<h3>New info</h3>
+<form action="/pokemon/<%=@pokemon.id%>" method="post">
+  <input id=hidden type=hidden name=_method value="patch">
+
+  <label for=name>Name: </label>
+  <input id=name type=text name=name><br>
+
+  <label for=nickname>Nick Name: </label>
+  <input id=nickname type=text name=nickname><br>
+
+  <label for=element>Type: </label>
+  <input id=element type=text name=element><br>
+
+  <input type=submit value="update pokemon">
+  
+</form>
