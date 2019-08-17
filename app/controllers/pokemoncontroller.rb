@@ -61,7 +61,15 @@ class PokemonController < ApplicationController
     end
   end
 
-  delete '/pokemon/:id' do
+  delete "/pokemon/:id" do
+    authenticate
+    @pokemon = Pokemon.find_by_id(params[:id])
+    if @pokemon.trainer.id == current_user.id
+        @pokemon.delete
+        redirect '/pokemon'
+    else 
+        redirect '/pokemon/:id'
+    end
   end
 
 end
