@@ -1,0 +1,13 @@
+<h4>Check out other Trainers</h4>
+<ul>
+  <% Trainer.all.each do |t|%>
+  <li><%=t.trainer_name%></li>
+  <ol>
+    <%t.pokemon.each do |pokemon|%>
+      <li><%=pokemon.name%>
+        <br>
+      </li>
+    <%end%>
+  </ol>
+  <%end%>
+</ul>

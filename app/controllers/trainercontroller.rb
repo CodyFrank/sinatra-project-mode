@@ -56,7 +56,7 @@ class TrainerController < ApplicationController
     @trainer = Trainer.find_by_id(params[:id])
     puts @trainer
     authenticate
-    erb :'trainers/trainer'
+    erb :'trainers/index'
   end
 
 end
