@@ -7,5 +7,6 @@ html {
 }
 
 .logout {
+    color: orange;
     float: right;
 }
