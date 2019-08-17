@@ -5,8 +5,7 @@ class TrainerController < ApplicationController
       @failed = false
       erb :'trainers/login'
     else
-      @trainer = Trainer.find_by_id(session[:user_id])
-      redirect "/trainer/#{@trainer.id}"
+      redirect "/trainers"
     end
   end
 
@@ -14,7 +13,7 @@ class TrainerController < ApplicationController
     @trainer = Trainer.find_by_trainer_name(params[:trainer_name])
     if !!@trainer && @trainer.authenticate(params[:password])
       session[:user_id] = @trainer.id
-      redirect "/trainer/#{@trainer.id}"
+      redirect "/trainers"
     else
       @failed = true
       erb :'trainers/login'
@@ -23,8 +22,7 @@ class TrainerController < ApplicationController
 
   get '/signup' do
     if logged_in?
-      @trainer = Trainer.find_by_id(session[:user_id])
-      redirect "/trainer/#{@trainer.id}"
+      redirect "/trainers"
     else
       erb :'trainers/signup'
     end
@@ -36,7 +34,7 @@ class TrainerController < ApplicationController
     if @trainer.valid?
       @failed = false
       session[:user_id] = @trainer.id
-      redirect "/trainer/#{@trainer.id}"
+      redirect "/trainers"
     else
       @failed = true
       erb :'trainers/signup'
@@ -52,9 +50,7 @@ class TrainerController < ApplicationController
     end
   end
 
-  get '/trainer' do
-    @trainer = Trainer.find_by_id(params[:id])
-    puts @trainer
+  get '/trainers' do
     authenticate
     erb :'trainers/index'
   end
