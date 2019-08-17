@@ -7,6 +7,8 @@ class PokemonController < ApplicationController
   end
 
   get '/pokemon/new' do
+    authenticate
+    erb :'pokemon/new'
   end
 
   post '/pokemon' do
