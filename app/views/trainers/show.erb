@@ -4,9 +4,15 @@
 <h3><%=@trainer.trainer_name%>'s pokemon!</h3>
 <ul>
 <%@trainer.pokemon.each do |p|%>
-  <li>Pokemon Name: <%=p.name%></li>
-  <li>Pokemon Nick Name: <%=p.nickname%></li>
-  <li>Pokemon Type: <%=p.element%></li>
+  <li>
+    <ul>
+      <li>Pokemon Name: <a href="/pokemon/<%=p.id%>"><strong><%=p.name%></strong></a></li>
+      <li>Pokemon Nick Name: <%=p.nickname%></li>
+      <li>Pokemon Type: <%=p.element%></li>
+      <br>
+    </ul>
+  </li>
 <%end%>
 </ul>
 
+<p><a href=/pokemon>all pokemon</a></p>

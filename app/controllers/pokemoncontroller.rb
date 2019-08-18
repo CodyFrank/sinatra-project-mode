@@ -15,7 +15,7 @@ class PokemonController < ApplicationController
     pokemon = Pokemon.create(name: params[:name], nickname: params[:nickname], element: params[:element])
     if pokemon.valid?
         current_user.pokemon << pokemon
-        redirect "/trainer"
+        redirect "/trainers/#{current_user.id}"
     else
         redirect '/pokemon/new'
     end
