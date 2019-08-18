@@ -6,7 +6,10 @@
 <p>Trainer: <%=@pokemon.trainer.trainer_name %></p>
 
 
+<p>Edit this <a href="/pokemon/<%=@pokemon.id%>/edit">pokemon</a></p>
+
 <form action="/pokemon/<%=@pokemon.id%>" method="post">
   <input id=hidden type=hidden name=_method value="delete">
   <input type=submit value="Release this Pokemon">
 </form>
+

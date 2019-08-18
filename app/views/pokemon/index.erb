@@ -1,9 +1,11 @@
 <h2>pokemon!</h2>
 <ul>
   <%@pokemon.each do |p|%>
-  <h3><%=p.name%></h3>
+  <h3><a href="/pokemon/<%=p.id%>"><%=p.name%></a></h3>
   <li>Pokemon Nick Name: <%=p.nickname%></li>
   <li>Pokemon Type: <%=p.element%></li>
   <li>Pokemon Trainer: <%=p.trainer.trainer_name%></li>
   <%end%>
 </ul>
+
+<p>Go back to <a href='/trainers'>trainers</a></p>

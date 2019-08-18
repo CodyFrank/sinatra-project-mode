@@ -4,10 +4,12 @@
   <li><%=t.trainer_name%></li>
   <ol>
     <%t.pokemon.each do |pokemon|%>
-      <li><%=pokemon.name%>
+      <li><a href="/pokemon/<%=pokemon.id%>"><%=pokemon.name%></a>
         <br>
       </li>
     <%end%>
   </ol>
   <%end%>
 </ul>
+
+<p>check out all the pokemon <a href='/pokemon'>here</a></p>
