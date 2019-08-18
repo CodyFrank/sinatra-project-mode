@@ -8,15 +8,15 @@ This site can be used to
 * view pokemon others have created
 * create new pokemon
 
-**strong** to contribute
+**to contribute**
 1. fork and clone this repo 
 2. bundle install
 3. write your code and submit a pull request
 
-**strong** deployment
+**deployment**
 This app is currently not deployed
 
-**stong** built with 
+**built with**  
 * Ruby
 * Sinatra
 * ActiveRecord
