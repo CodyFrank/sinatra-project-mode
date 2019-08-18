@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
     get '/login' do
         if !logged_in?
           @failed = false
-          erb :'trainers/login'
+          erb :'sessions/login'
         else
           redirect "/trainers"
         end
@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
           redirect "/trainers"
         else
           @failed = true
-          erb :'trainers/login'
+          erb :'sessions/login'
         end
       end
     
@@ -24,7 +24,7 @@ class SessionsController < ApplicationController
         if logged_in?
           redirect "/trainers"
         else
-          erb :'trainers/signup'
+          erb :'sessions/signup'
         end
       end
     
@@ -37,7 +37,7 @@ class SessionsController < ApplicationController
           redirect "/trainers"
         else
           @failed = true
-          erb :'trainers/signup'
+          erb :'sessions/signup'
         end
       end
     
