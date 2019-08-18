@@ -42,12 +42,9 @@ class TrainerController < ApplicationController
   end
 
   delete '/logout' do
-    if logged_in?
+    authenticate
       session.destroy
       redirect '/login'
-    else
-      redirect '/login'
-    end
   end
 
   get '/trainers' do
@@ -57,7 +54,6 @@ class TrainerController < ApplicationController
   
   get '/trainers/:id' do
     authenticate
-    @current_user = current_user
     @trainer = Trainer.find_by_id(params[:id])
     erb :'/trainers/show'
   end

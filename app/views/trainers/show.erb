@@ -1,3 +1,12 @@
-<%if @trainer == @current_user%>
-<h1>test!<h2>
+<%if @trainer == current_user%>
+<p>update your Trainer info <a href="/trainers/<%=@trainer.id%>/edit">here</a></p>
 <%end%>
+<h3><%=@trainer.trainer_name%>'s pokemon!</h3>
+<ul>
+<%@trainer.pokemon.each do |p|%>
+  <li>Pokemon Name: <%=p.name%></li>
+  <li>Pokemon Nick Name: <%=p.nickname%></li>
+  <li>Pokemon Type: <%=p.element%></li>
+<%end%>
+</ul>
+

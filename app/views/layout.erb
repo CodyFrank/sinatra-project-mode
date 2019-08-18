@@ -10,15 +10,18 @@
 <div>
 
 <%if logged_in?%>
+
+<h2><a href="/trainers/<%=current_user.id%>">Pokemon gotta catch them all</a><h2>
+
   <form action='/logout' method="post">
     <input id=hidden type=hidden name=_method value=delete>
     <input type=submit value='Logout'>
   </form>
 
-<%end%>
+<%else%>
 
-<h2>Pokemon gotta catch them all</h2>
-
+  <h2>Pokemon gotta catch them all</h2>
+  <%end%>
 
 </div>
 
