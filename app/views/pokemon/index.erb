@@ -5,8 +5,8 @@
   <h3><a href="/pokemon/<%=p.id%>"><%=p.name%></a></h3>
   <li>Pokemon Nick Name: <%=p.nickname%></li>
   <li>Pokemon Type: <%=p.element%></li>
-  <li>Pokemon Trainer: <%=p.trainer.trainer_name%></li>
+  <li>Pokemon Trainer: <a href="/trainers/<%=p.trainer.id%>"><%=p.trainer.trainer_name%></a></li>
   <%end%>
 </ul>
 
-<p>Go back to <a href='/trainers'>trainers</a></p>
+<p>Go back to <a href='/trainers'>trainers</a> or <a href="/pokemon">Pokemon</a></p>
