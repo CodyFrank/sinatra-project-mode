@@ -25,8 +25,11 @@ class PokemonController < ApplicationController
 
   get '/pokemon/:id' do
     authenticate
-    @pokemon = Pokemon.find_by_id(params[:id])
-    erb :'pokemon/show'
+    if @pokemon = Pokemon.find_by_id(params[:id])
+      erb :'pokemon/show'
+    else
+      erb :'error'
+    end
   end
 
   get '/pokemon/:id/edit' do
@@ -59,6 +62,9 @@ class PokemonController < ApplicationController
         if @pokemon.valid?
           @pokemon.save
           redirect "pokemon/#{@pokemon.id}"
+        else
+          @messages = "Something has gone wrong"
+          erb :'pokemon/edit'
         end
     else
         redirect "pokemon/#{@pokemon.id}/edit"

@@ -1,5 +1,7 @@
 <h3>update your pokemon's info here</h3>
-
+<% if !!@messages %>
+<p class="failed"><%= @messages %></p>
+<% end %>
 <h3>Old info</h3>
 <h4><%=@pokemon.name%></h4>
 <p>Nick Name: <%=@pokemon.nickname %></p>
