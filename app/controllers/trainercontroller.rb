@@ -57,6 +57,7 @@ class TrainerController < ApplicationController
   
   get '/trainers/:id' do
     authenticate
+    @current_user = current_user
     @trainer = Trainer.find_by_id(params[:id])
     erb :'/trainers/show'
   end
