@@ -12,12 +12,14 @@ class PokemonController < ApplicationController
   end
 
   post '/pokemon' do
+    authenticate
     pokemon = Pokemon.create(name: params[:name], nickname: params[:nickname], element: params[:element])
     if pokemon.valid?
         current_user.pokemon << pokemon
         redirect "/trainers/#{current_user.id}"
     else
-        redirect '/pokemon/new'
+        @messages = "There was a problem catching your pokemon. Please make sure all of the boxes are filled in"
+        erb :'pokemon/new'
     end
   end
 

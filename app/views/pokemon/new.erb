@@ -1,5 +1,9 @@
 <h2>Catch a Pokemon in the tall grass or go view <a href='/pokemon'>pokemon</a></h2>
 
+<% if !!@messages %>
+<p class="failed"><%= @messages %></p>
+<% end %>
+
 <form action='/pokemon' method='post'>
 
   <label for=name>Name: </label>
