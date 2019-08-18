@@ -68,7 +68,7 @@ class PokemonController < ApplicationController
         @pokemon.delete
         redirect '/pokemon'
     else 
-        redirect '/pokemon/:id'
+        redirect "/pokemon/#{@pokemon.id}"
     end
   end
 
