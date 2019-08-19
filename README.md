@@ -13,7 +13,7 @@ This site can be used to
 2. bundle install
 3. write your code and submit a pull request
 
-**deployment**
+**deployment**  
 This app is currently not deployed
 
 **built with**  

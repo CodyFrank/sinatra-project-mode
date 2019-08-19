@@ -12,6 +12,11 @@ class ApplicationController < Sinatra::Base
         erb :index
     end
 
+    not_found do
+      @messages = "this page does not exist"
+      erb :'error'
+    end
+
     helpers do
 
       def logged_in?
