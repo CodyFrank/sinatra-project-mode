@@ -10,7 +10,8 @@ class TrainerController < ApplicationController
     if @trainer = Trainer.find_by_id(params[:id])
       erb :'/trainers/show'
     else
-      erb :'error'
+      @messages = "This trainer does not exist"
+      erb :error
     end
   end
 
@@ -20,9 +21,11 @@ class TrainerController < ApplicationController
       if @trainer == current_user
         erb :'trainers/edit'
       else
-        redirect "/trainers/#{@trainer.id}"
+        @messages = "That is not your profile to update"
+        erb :error
       end
     else
+      @messages = "This trainer does not exist"
       erb :'error'
     end
   end
