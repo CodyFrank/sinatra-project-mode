@@ -10,17 +10,23 @@
 <form action="/trainers/<%=@trainer.id%>" method="post">
   <input id=hidden type=hidden name=_method value="patch">
 
-
   <label for=trainer_name>Trainer Name: </label>
   <input id=trainer_name type=text name=trainer_name><br>
 
   <label for=email>email: </label>
   <input id=email type=text name=email><br>
 
-
   <input type=submit value="update Trainer">
   
 </form>
-<br>
 
+<br>
 <a href="/trainer/<%=@trainer.id%>">go back</a>
+
+
+
+  <!--<label for=password>Password: </label>
+  <input id=password type=password name=password><br>
+
+  <label for=password_confirmation>Confirm Password: </label>
+  <input id=password_confirmation type=password name=password_confirmation><br>-->

@@ -32,8 +32,9 @@ class TrainerController < ApplicationController
 
   patch '/trainers/:id' do
     authenticate
+    @failed = false
     @trainer = Trainer.find_by_id(params[:id])
-    if @trainer.id == current_user.id
+    if @trainer && @trainer.id == current_user.id
 
       if params[:trainer_name] != ""
         @trainer.trainer_name = params[:trainer_name]
@@ -42,13 +43,16 @@ class TrainerController < ApplicationController
       if params[:email] != ""
         @trainer.email = params[:email]
       end
-      
-        @trainer.save
-        redirect "/trainers/#{@trainer.id}/edit"
-      
 
+      
+      if @trainer.valid?
+        @trainer.save
+        redirect "/trainers/#{@trainer.id}"
+      end
+      
     else
-      redirect "/trainers/#{@trainer.id}"
+      @messages = "You cannot update this trainer info"
+      erb :error
     end
   end
 
