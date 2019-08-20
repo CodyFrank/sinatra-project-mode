@@ -7,13 +7,11 @@
 <ul>
 <%@trainer.pokemon.each do |p|%>
   <li>
-    <ul>
-      <li>Pokemon Name: <a href="/pokemon/<%=p.id%>"><strong><%=p.name%></strong></a></li>
-      <li>Pokemon Nick Name: <%=p.nickname%></li>
-      <li>Pokemon Type: <%=p.element%></li>
-      <br>
-    </ul>
+      <p><a href="/pokemon/<%=p.id%>"><strong><%=p.name%></strong></a></p>
+      <p>Pokemon Nick Name: <%=p.nickname%></p>
+      <p>Pokemon Type: <%=p.element%></p>
   </li>
+  <br>
 <%end%>
 </ul>
 
