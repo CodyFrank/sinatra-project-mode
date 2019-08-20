@@ -30,26 +30,26 @@ class TrainerController < ApplicationController
     end
   end
 
-  # patch '/trainers/:id' do
-  #   authenticate
-  #   @trainer = Trainer.find_by_id(params[:id])
-  #   if @trainer.id == current_user.id
+  patch '/trainers/:id' do
+    authenticate
+    @trainer = Trainer.find_by_id(params[:id])
+    if @trainer.id == current_user.id
 
-  #     if params[:trainer_name] != ""
-  #       @trainer.trainer_name = params[:trainer_name]
-  #     end
+      if params[:trainer_name] != ""
+        @trainer.trainer_name = params[:trainer_name]
+      end
 
-  #     if params[:email] != ""
-  #       @trainer.email = params[:email]
-  #     end
+      if params[:email] != ""
+        @trainer.email = params[:email]
+      end
       
-  #       @trainer.save
-  #       redirect "/trainers/#{@trainer.id}/edit"
+        @trainer.save
+        redirect "/trainers/#{@trainer.id}/edit"
       
 
-  #   else
-  #     redirect "/trainers/#{@trainer.id}"
-  #   end
-  # end
+    else
+      redirect "/trainers/#{@trainer.id}"
+    end
+  end
 
 end
