@@ -9,7 +9,7 @@
 
 <%if @pokemon.trainer.id == current_user.id%>
 
-<p>Edit this <a href="/pokemon/<%=@pokemon.id%>/edit">pokemon</a></p>
+<p>Edit this <a href="/pokemon/<%=@pokemon.id%>/edit">Pokemon</a></p>
 
 <form action="/pokemon/<%=@pokemon.id%>" method="post">
   <input id=hidden type=hidden name=_method value="delete">
@@ -17,4 +17,4 @@
 </form>
 <%end%>
 
-<a href="/pokemon">All Pokemon</a>
+<p>go to <a href="/pokemon">Pokemon</a> or <a href='/trainers'>Trainers</a></p>

@@ -1,15 +1,15 @@
 <h4>Check out other Trainers</h4>
 <ul>
   <% Trainer.all.each do |t|%>
-  <li><%=t.trainer_name%></li>
+  <h3><a href="/trainers/<%= t.id %>"><%=t.trainer_name%></a></h3>
   <ol>
     <%t.pokemon.each do |pokemon|%>
       <li><a href="/pokemon/<%=pokemon.id%>"><%=pokemon.name%></a>
-        <br>
       </li>
+      <br>
     <%end%>
   </ol>
   <%end%>
 </ul>
 
-<p>check out all the pokemon <a href='/pokemon'>here</a></p>
+<p>view<a href='/pokemon'>Pokemon</a></p>

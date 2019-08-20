@@ -2,11 +2,11 @@
 <p>Catch a new <a href="/pokemon/new">pokemon</a></p>
 <ul>
   <%@pokemon.each do |p|%>
-  <h3><a href="/pokemon/<%=p.id%>"><%=p.name%></a></h3>
+  <h3><a href="/pokemon/<%= p.id %>"><%=p.name%></a></h3>
   <li>Pokemon Nick Name: <%=p.nickname%></li>
   <li>Pokemon Type: <%=p.element%></li>
   <li>Pokemon Trainer: <a href="/trainers/<%=p.trainer.id%>"><%=p.trainer.trainer_name%></a></li>
   <%end%>
 </ul>
 
-<p>Go back to <a href='/trainers'>trainers</a> or <a href="/pokemon">Pokemon</a></p>
+<p>view <a href='/trainers'>Trainers</a>

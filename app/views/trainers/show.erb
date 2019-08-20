@@ -3,11 +3,11 @@
 <%end%>
 
 
-<h3><%=@trainer.trainer_name%>'s pokemon!</h3>
+<h2><%=@trainer.trainer_name%>'s pokemon!</h2>
 <ul>
 <%@trainer.pokemon.each do |p|%>
   <li>
-      <p><a href="/pokemon/<%=p.id%>"><strong><%=p.name%></strong></a></p>
+      <h3><a href="/pokemon/<%=p.id%>"><%=p.name%></a></h3>
       <p>Pokemon Nick Name: <%=p.nickname%></p>
       <p>Pokemon Type: <%=p.element%></p>
   </li>
@@ -15,4 +15,4 @@
 <%end%>
 </ul>
 
-<p>all <a href=/pokemon>pokemon </a>or <a href="/trainers">Trainers</a></p>
+<p>view <a href=/pokemon>Pokemon </a>or <a href="/trainers">Trainers</a></p>
