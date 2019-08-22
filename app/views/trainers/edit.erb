@@ -1,20 +1,14 @@
 <h3>Update your Trainer info here</h3>
 
-<h3>Old info</h3>
-<h4>Trainer Name: <%=@trainer.trainer_name%></h4>
-<p>Email: <%=@trainer.email %></p>
-
-
-
-<h3>New info</h3>
+<h3><%=@trainer.trainer_name%></h3>
 <form action="/trainers/<%=@trainer.id%>" method="post">
   <input id=hidden type=hidden name=_method value="patch">
 
   <label for=trainer_name>Trainer Name: </label>
-  <input id=trainer_name type=text name=trainer_name><br>
+  <input id=trainer_name type=text name=trainer_name value="<%=@trainer.trainer_name%>"><br>
 
   <label for=email>email: </label>
-  <input id=email type=text name=email><br>
+  <input id=email type=text name=email value="<%=@trainer.email %>"><br>
 
   <input type=submit value="update Trainer">
   
