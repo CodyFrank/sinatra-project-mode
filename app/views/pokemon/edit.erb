@@ -2,25 +2,19 @@
 <% if !!@messages %>
 <p class="failed"><%= @messages %></p>
 <% end %>
-<h3>Old info</h3>
-<h4><%=@pokemon.name%></h4>
-<p>Nick Name: <%=@pokemon.nickname %></p>
-<p>Type: <%=@pokemon.element %></p>
-<p>Trainer: <%=@pokemon.trainer.trainer_name %></p>
 
-
-<h3>New info</h3>
+<h3><%=@pokemon.name%></h3>
 <form action="/pokemon/<%=@pokemon.id%>" method="post">
   <input id=hidden type=hidden name=_method value="patch">
 
   <label for=name>Name: </label>
-  <input id=name type=text name=name><br>
+  <input id=name type=text name=name value="<%=@pokemon.name%>"><br>
 
   <label for=nickname>Nick Name: </label>
-  <input id=nickname type=text name=nickname><br>
+  <input id=nickname type=text name=nickname value="<%=@pokemon.nickname %>"><br>
 
   <label for=element>Type: </label>
-  <input id=element type=text name=element><br>
+  <input id=element type=text name=element value="<%=@pokemon.element %>"><br>
 
   <input type=submit value="update pokemon">
   
