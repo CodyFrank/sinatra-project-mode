@@ -6,6 +6,7 @@ class Trainer < ActiveRecord::Base
     validates :password, length: { minimum: 5 }, confirmation: true, 
       unless: Proc.new { |t| t.password.blank? }
     has_many :pokemon
+    
 end
 
 
