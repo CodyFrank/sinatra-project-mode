@@ -1,5 +1,6 @@
 <h2>pokemon!</h2>
 <p>Catch a new <a href="/pokemon/new">pokemon</a></p>
+<p>view <a href='/trainers'>Trainers</a>
 <ul>
   <%@pokemon.each do |p|%>
   <h3><a href="/pokemon/<%= p.id %>"><%=p.name%></a></h3>

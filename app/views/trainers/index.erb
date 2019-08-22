@@ -1,4 +1,5 @@
 <h4>Check out other Trainers</h4>
+<p>view <a href='/pokemon'>Pokemon</a></p>
 <ul>
   <% Trainer.all.each do |t|%>
   <h3><a href="/trainers/<%= t.id %>"><%=t.trainer_name%></a></h3>
@@ -11,5 +12,3 @@
   </ol>
   <%end%>
 </ul>
-
-<p>view <a href='/pokemon'>Pokemon</a></p>
