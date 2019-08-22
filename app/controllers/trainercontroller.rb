@@ -6,8 +6,9 @@ class TrainerController < ApplicationController
   end
   
   get '/trainers/:id' do
+    clean_params = clean(params)
     authenticate
-    if @trainer = Trainer.find_by_id(params[:id])
+    if @trainer = Trainer.find_by_id(clean_params[:id])
       erb :'/trainers/show'
     else
       @messages = "This trainer does not exist"
@@ -17,7 +18,8 @@ class TrainerController < ApplicationController
 
   get '/trainers/:id/edit' do
     authenticate
-    if @trainer = Trainer.find_by_id(params[:id])
+    clean_params = clean(params)
+    if @trainer = Trainer.find_by_id(clean_params[:id])
       if @trainer == current_user
         erb :'trainers/edit'
       else
@@ -32,16 +34,17 @@ class TrainerController < ApplicationController
 
   patch '/trainers/:id' do
     authenticate
+    clean_params = clean(params)
     @failed = false
-    @trainer = Trainer.find_by_id(params[:id])
+    @trainer = Trainer.find_by_id(clean_params[:id])
     if @trainer && @trainer.id == current_user.id
 
-      if params[:trainer_name] != ""
-        @trainer.trainer_name = params[:trainer_name]
+      if clean_params[:trainer_name] != ""
+        @trainer.trainer_name = clean_params[:trainer_name]
       end
 
-      if params[:email] != ""
-        @trainer.email = params[:email]
+      if clean_params[:email] != ""
+        @trainer.email = clean_params[:email]
       end
 
       

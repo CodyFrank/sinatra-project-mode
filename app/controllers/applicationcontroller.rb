@@ -33,6 +33,14 @@ class ApplicationController < Sinatra::Base
         end
       end
 
+      def clean(params)
+        new_params = params.dup
+        params.each do |k, v|
+          new_params[k] = Rack::Utils.escape_html(v)
+        end
+        return new_params
+      end
+
     end
 
 end

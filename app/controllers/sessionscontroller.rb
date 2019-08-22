@@ -10,8 +10,9 @@ class SessionsController < ApplicationController
       end
     
       post '/login' do
-        @trainer = Trainer.find_by_trainer_name(params[:trainer_name])
-        if !!@trainer && @trainer.authenticate(params[:password])
+        clean_params = clean(params)
+        @trainer = Trainer.find_by_trainer_name(clean_params[:trainer_name])
+        if !!@trainer && @trainer.authenticate(clean_params[:password])
           session[:user_id] = @trainer.id
           redirect "/trainers"
         else
@@ -30,7 +31,8 @@ class SessionsController < ApplicationController
     
     
       post '/signup' do
-        @trainer = Trainer.create(trainer_name: params[:trainer_name], password: params[:password], password_confirmation: params[:password_confirmation], email: params[:email])
+        clean_params = clean(params)
+        @trainer = Trainer.create(trainer_name: clean_params[:trainer_name], password: clean_params[:password], password_confirmation: clean_params[:password_confirmation], email: clean_params[:email])
         if @trainer.valid?
           @failed = false
           session[:user_id] = @trainer.id

@@ -13,7 +13,8 @@ class PokemonController < ApplicationController
 
   post '/pokemon' do
     authenticate
-    pokemon = Pokemon.create(name: params[:name], nickname: params[:nickname], element: params[:element])
+    clean_params = clean(params)
+    pokemon = Pokemon.create(name:clean_params[:name], nickname: clean_params[:nickname], element: clean_params[:element])
     if pokemon.valid?
         current_user.pokemon << pokemon
         redirect "/trainers/#{current_user.id}"
@@ -25,7 +26,8 @@ class PokemonController < ApplicationController
 
   get '/pokemon/:id' do
     authenticate
-    if @pokemon = Pokemon.find_by_id(params[:id])
+    clean_params = clean(params)
+    if @pokemon = Pokemon.find_by_id(clean_params[:id])
       erb :'pokemon/show'
     else
       @messages = "oops! looks like that pokemon doesn't exist please try again."
@@ -35,7 +37,8 @@ class PokemonController < ApplicationController
 
   get '/pokemon/:id/edit' do
     authenticate
-    if @pokemon = Pokemon.find_by_id(params[:id])
+    clean_params = clean(params)
+    if @pokemon = Pokemon.find_by_id(clean_params[:id])
       if @pokemon.trainer.id == current_user.id
           erb :'pokemon/edit'
       else
@@ -50,19 +53,20 @@ class PokemonController < ApplicationController
 
   patch '/pokemon/:id' do
     authenticate
-    if @pokemon = Pokemon.find_by_id(params[:id])
+    clean_params = clean(params)
+    if @pokemon = Pokemon.find_by_id(clean_params[:id])
       if @pokemon.trainer.id == current_user.id
   
-          if params[:name] != ""
-            @pokemon.name = params[:name]
+          if clean_params[:name] != ""
+            @pokemon.name = clean_params[:name]
           end
   
-          if params[:nickname] != ""
-            @pokemon.nickname = params[:nickname]
+          if clean_params[:nickname] != ""
+            @pokemon.nickname = clean_params[:nickname]
           end
   
-          if params[:element] != ""
-            @pokemon.element = params[:element]
+          if clean_params[:element] != ""
+            @pokemon.element = clean_params[:element]
           end
   
           if @pokemon.valid?
@@ -84,7 +88,8 @@ class PokemonController < ApplicationController
 
   delete "/pokemon/:id" do
     authenticate
-    if @pokemon = Pokemon.find_by_id(params[:id])
+    clean_params = clean(params)
+    if @pokemon = Pokemon.find_by_id(clean_params[:id])
       if @pokemon.trainer.id == current_user.id
           @pokemon.delete
           redirect '/pokemon'
